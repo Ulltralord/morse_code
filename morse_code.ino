@@ -1,8 +1,14 @@
 #define FIFO_BUFF_SIZE 512
 #define DOT_DELAY 100 // mS
 #define DASH_DELAY (DOT_DELAY * 3)
-#define SEND_DOT_DELAY digitalWrite(LED_BUILTIN, HIGH); delay(DOT_DELAY); digitalWrite(LED_BUILTIN, LOW); delay(DOT_DELAY);     
-#define SEND_DASH_DELAY digitalWrite(LED_BUILTIN, HIGH); delay(DASH_DELAY); digitalWrite(LED_BUILTIN, LOW); delay(DOT_DELAY);     
+
+void delay_mils(unsigned long milsec) {
+  unsigned long milsec_end = millis() + milsec;
+    while (milsec_end > millis());
+}
+
+#define SEND_DOT_DELAY digitalWrite(LED_BUILTIN, HIGH); delay_mils(DOT_DELAY); digitalWrite(LED_BUILTIN, LOW); delay_mils(DOT_DELAY);     
+#define SEND_DASH_DELAY digitalWrite(LED_BUILTIN, HIGH); delay_mils(DASH_DELAY); digitalWrite(LED_BUILTIN, LOW); delay_mils(DOT_DELAY);     
 
 char  FifoBuf[FIFO_BUFF_SIZE];
 int   FifoBufToRead = 0;
@@ -22,7 +28,7 @@ void SendMorze(unsigned char Del) {
       // .-
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'B':
     case 'b':
@@ -31,7 +37,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'C':
     case 'c':
@@ -40,7 +46,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'D':
     case 'd':
@@ -48,13 +54,13 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'E':
     case 'e':
       // .
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'F':
     case 'f':
@@ -63,7 +69,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'G':
     case 'g':
@@ -71,7 +77,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'H':
     case 'h':
@@ -80,14 +86,14 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'I':
     case 'i':
       // ..
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'J':
     case 'j':
@@ -96,7 +102,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DASH_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'K':
     case 'k':
@@ -104,7 +110,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'L':
     case 'l':
@@ -113,7 +119,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'M':
     case 'm':
@@ -127,7 +133,7 @@ void SendMorze(unsigned char Del) {
       // -.
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'O':
     case 'o':
@@ -135,7 +141,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DASH_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'P':
     case 'p':
@@ -153,7 +159,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'R':
     case 'r':
@@ -161,7 +167,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'S':
     case 's':
@@ -169,13 +175,13 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'T':
     case 't':
       // -
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'U':
     case 'u':
@@ -183,7 +189,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'V':
     case 'v':
@@ -192,7 +198,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'W':
     case 'w':
@@ -200,7 +206,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'X':
     case 'x':
@@ -209,7 +215,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'Y':
     case 'y':
@@ -218,7 +224,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case 'Z':
     case 'z':
@@ -227,7 +233,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '1':
       // .----
@@ -236,7 +242,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DASH_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '2':
       // ..---
@@ -245,7 +251,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DASH_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '3':
       // ...--
@@ -254,7 +260,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '4':
       // ....-
@@ -263,7 +269,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '5':
       // .....
@@ -272,7 +278,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '6':
       // -....
@@ -281,7 +287,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '7':
       // --...
@@ -290,7 +296,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '8':
       // ---..
@@ -299,7 +305,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '9':
       // ----.
@@ -308,7 +314,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '0':
       // -----
@@ -317,7 +323,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DASH_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '.':
       // .-.-.-
@@ -327,7 +333,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case ',':
       // --..--
@@ -337,7 +343,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case ':':
       // ---...
@@ -347,7 +353,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '?':
       // ..--..
@@ -357,7 +363,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DOT_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '\'':
       // .----.
@@ -367,7 +373,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '-':
       // -....-
@@ -377,7 +383,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '/':
       // -..-.
@@ -386,7 +392,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case '(':
       // -.--.
@@ -395,7 +401,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
      case ')':
       // -.--.-
@@ -405,7 +411,7 @@ void SendMorze(unsigned char Del) {
       SEND_DASH_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
      case '\"':
       // .-..-.
@@ -415,7 +421,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
      case '=':
       // -...-
@@ -424,7 +430,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
      case '+':
       // .-.-.
@@ -433,7 +439,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
      case '*':
       // -..-
@@ -441,7 +447,7 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DOT_DELAY
       SEND_DASH_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
      case '@':
       // .--.-.
@@ -451,10 +457,10 @@ void SendMorze(unsigned char Del) {
       SEND_DOT_DELAY
       SEND_DASH_DELAY
       SEND_DOT_DELAY
-      delay(DOT_DELAY * 2); // wait after simbol 
+      delay_mils(DOT_DELAY * 2); // wait after simbol 
      break;
     case ' ':
-      delay(DOT_DELAY * 4); // wait after word      
+      delay_mils(DOT_DELAY * 4); // wait after word      
      break;
 //    default:
       // выполняется, если не выбрана ни одна альтернатива
